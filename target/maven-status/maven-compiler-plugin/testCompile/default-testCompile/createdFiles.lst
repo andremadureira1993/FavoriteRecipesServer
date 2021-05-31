@@ -1,0 +1,7 @@
+com\recipe\db\AbstractFavoriteAssert.class
+com\recipe\db\Assertions.class
+com\recipe\db\RecipeDataAssert.class
+com\recipe\db\AbstractRecipeDataAssert.class
+com\recipe\db\LoginAssert.class
+com\recipe\db\FavoriteAssert.class
+com\recipe\db\AbstractLoginAssert.class
