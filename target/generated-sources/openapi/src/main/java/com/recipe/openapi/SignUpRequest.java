@@ -13,7 +13,7 @@ import javax.validation.constraints.*;
  * Json object received in Sign-up requests
  */
 @ApiModel(description = "Json object received in Sign-up requests")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2021-05-31T17:27:29.458741200-03:00[America/Sao_Paulo]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2021-05-31T21:04:12.209350800-03:00[America/Sao_Paulo]")
 public class SignUpRequest   {
   @JsonProperty("username")
   private String username;
