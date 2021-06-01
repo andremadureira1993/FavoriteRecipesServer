@@ -1,12 +1,13 @@
 com\recipe\openapi\ApiUtil.class
-com\recipe\configurations\SecurityConfiguration.class
 com\recipe\exceptions\FlowException.class
 com\recipe\openapi\UserFavoritesResponse.class
 com\recipe\api\SignupController.class
 com\recipe\openapi\FavoritesResponse.class
 com\recipe\util\Utils.class
 com\recipe\openapi\RecipesApi.class
+com\recipe\openapi\LoginResponse.class
 com\recipe\Application.class
+com\recipe\openapi\LoginApi.class
 com\recipe\db\LoginRepository.class
 com\recipe\services\RecipeService.class
 com\recipe\services\CustomUserDetailService.class
@@ -14,7 +15,7 @@ com\recipe\openapi\RecipeResponse.class
 com\recipe\openapi\ErrorTypeEnum.class
 com\recipe\services\SignupService.class
 com\recipe\configurations\JWTAuthenticationFilter.class
-com\recipe\api\SigninController.class
+com\recipe\openapi\LoginRequest.class
 com\recipe\openapi\SignUpRequest.class
 com\recipe\db\Login.class
 com\recipe\db\RecipeData.class
