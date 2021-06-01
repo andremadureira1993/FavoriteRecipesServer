@@ -17,6 +17,13 @@
     <properties>
         <java.version>11</java.version>
 
+        <java.version>11</java.version>
+        <start-class>com.recipe.Application</start-class>
+        <jacoco.unit-tests.limit.instruction-ratio>100%</jacoco.unit-tests.limit.instruction-ratio>
+        <jacoco.unit-tests.limit.branch-ratio>100%</jacoco.unit-tests.limit.branch-ratio>
+        <jacoco.aggregate.limit.instruction-ratio>100%</jacoco.aggregate.limit.instruction-ratio>
+        <jacoco.aggregate.limit.branch-ratio>100%</jacoco.aggregate.limit.branch-ratio>
+
         <javax-xml.version>2.2.11</javax-xml.version>
         <jackson-datatype.version>2.11.0</jackson-datatype.version>
         <openapitools.version>0.1.0</openapitools.version>
@@ -135,6 +142,17 @@
 
         <!-- Testes Dependencies -->
         <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.junit.vintage</groupId>
+                    <artifactId>junit-vintage-engine</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
             <groupId>org.mockito</groupId>
             <artifactId>mockito-junit-jupiter</artifactId>
             <version>3.7.7</version>
@@ -214,11 +232,26 @@
                         <param>com.recipe.db.Favorite</param>
                         <param>com.recipe.db.Login</param>
                         <param>com.recipe.db.RecipeData</param>
+                        <param>com.recipe.exceptions.FlowException</param>
                     </classes>
                     <generateAssertions>true</generateAssertions>
                     <generateBddAssertions>false</generateBddAssertions>
                     <generateSoftAssertions>false</generateSoftAssertions>
                     <generateJUnitSoftAssertions>false</generateJUnitSoftAssertions>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.jacoco</groupId>
+                <artifactId>jacoco-maven-plugin</artifactId>
+                <configuration>
+                    <excludes>
+                        <!-- database -->
+                        <exclude>**/db/*.class</exclude>
+                        <exclude>**/configurations/*.class</exclude>
+                        <exclude>**/configurations/*.class</exclude>
+                        <!-- Auto generated openapi code -->
+                        <exclude>**/openapi/*</exclude>
+                    </excludes>
                 </configuration>
             </plugin>
         </plugins>
