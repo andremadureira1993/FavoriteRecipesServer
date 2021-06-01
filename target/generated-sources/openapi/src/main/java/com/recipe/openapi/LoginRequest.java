@@ -10,30 +10,29 @@ import javax.validation.Valid;
 import javax.validation.constraints.*;
 
 /**
- * Json object received in Sign-up requests
+ * LoginRequest
  */
-@ApiModel(description = "Json object received in Sign-up requests")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2021-05-31T22:56:01.260710800-03:00[America/Sao_Paulo]")
-public class SignUpRequest   {
+public class LoginRequest   {
   @JsonProperty("username")
   private String username;
 
   @JsonProperty("password")
   private String password;
 
-  public SignUpRequest username(String username) {
+  public LoginRequest username(String username) {
     this.username = username;
     return this;
   }
 
   /**
-   * Username that will be used in the login
+   * The username.
    * @return username
   */
-  @ApiModelProperty(example = "usernameabc", required = true, value = "Username that will be used in the login")
+  @ApiModelProperty(required = true, value = "The username.")
   @NotNull
 
-
+@Size(max=128) 
   public String getUsername() {
     return username;
   }
@@ -42,19 +41,19 @@ public class SignUpRequest   {
     this.username = username;
   }
 
-  public SignUpRequest password(String password) {
+  public LoginRequest password(String password) {
     this.password = password;
     return this;
   }
 
   /**
-   * Password that will be used in the login
+   * The user password.
    * @return password
   */
-  @ApiModelProperty(example = "abc123", required = true, value = "Password that will be used in the login")
+  @ApiModelProperty(required = true, value = "The user password.")
   @NotNull
 
-
+@Size(min=6,max=24) 
   public String getPassword() {
     return password;
   }
@@ -72,9 +71,9 @@ public class SignUpRequest   {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SignUpRequest signUpRequest = (SignUpRequest) o;
-    return Objects.equals(this.username, signUpRequest.username) &&
-        Objects.equals(this.password, signUpRequest.password);
+    LoginRequest loginRequest = (LoginRequest) o;
+    return Objects.equals(this.username, loginRequest.username) &&
+        Objects.equals(this.password, loginRequest.password);
   }
 
   @Override
@@ -85,7 +84,7 @@ public class SignUpRequest   {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class SignUpRequest {\n");
+    sb.append("class LoginRequest {\n");
     
     sb.append("    username: ").append(toIndentedString(username)).append("\n");
     sb.append("    password: ").append(toIndentedString(password)).append("\n");

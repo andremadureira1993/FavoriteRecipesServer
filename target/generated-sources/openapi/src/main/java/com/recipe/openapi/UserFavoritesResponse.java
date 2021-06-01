@@ -14,7 +14,7 @@ import javax.validation.constraints.*;
  * All favorites for the current user
  */
 @ApiModel(description = "All favorites for the current user")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2021-05-31T21:04:12.209350800-03:00[America/Sao_Paulo]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2021-05-31T22:56:01.260710800-03:00[America/Sao_Paulo]")
 public class UserFavoritesResponse   {
   @JsonProperty("favoriteId")
   private String favoriteId;
