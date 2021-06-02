@@ -16,8 +16,6 @@ public class JwtTokenUtil {
 
     public static final long JWT_ACCESS_TOKEN_VALIDITY = 7 * 24 * 60 * 60; // A week.
 
-    public static final long JWT_REFRESH_TOKEN_VALIDITY = 30 * 24 * 60 * 60; // A month.
-
     @Value("${jwt.secret}")
     private String secret;
 
@@ -29,16 +27,6 @@ public class JwtTokenUtil {
      */
     public String getSubjectFromToken(String token) {
         return getClaimFromToken(token, Claims::getSubject);
-    }
-
-    /**
-     * Gets the JWT expiration date.
-     *
-     * @param token
-     * @return The JWT expiration date.
-     */
-    public Date getExpirationDateFromToken(String token) {
-        return getClaimFromToken(token, Claims::getExpiration);
     }
 
     /**
@@ -79,20 +67,6 @@ public class JwtTokenUtil {
     public Boolean validateToken(String token, JwtUserDetails userDetails) {
         final String username = getSubjectFromToken(token);
         return username.equals(userDetails.getUsername());
-    }
-
-    /**
-     * Generates a JWT.
-     *
-     * @param subject
-     * @return A JWT.
-     */
-    public String generateRefreshToken(String subject) {
-        return Jwts.builder()
-            .setSubject(subject)
-            .setIssuedAt(new Date(System.currentTimeMillis()))
-            .setExpiration(new Date(System.currentTimeMillis() + JWT_REFRESH_TOKEN_VALIDITY * 1000))
-            .signWith(SignatureAlgorithm.HS256, secret).compact();
     }
 
     private <T> T getClaimFromToken(String token, Function<Claims, T> claimsResolver) {

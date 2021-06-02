@@ -19,6 +19,9 @@ import com.recipe.openapi.Recipe;
 import com.recipe.openapi.RecipeResponse;
 import com.recipe.util.Utils;
 
+/**
+ * Process the CRUDs against recipes services
+ */
 @Service
 public class RecipeService {
 
