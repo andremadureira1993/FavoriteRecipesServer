@@ -7,6 +7,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 
 import com.recipe.db.RecipeData;
@@ -33,7 +34,11 @@ public class Utils {
     public String extractUsernameFromJwt() {
         Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 
-        return principal.toString();
+        if (principal instanceof UserDetails) {
+            return ((UserDetails)principal).getUsername();
+        } else {
+            return principal.toString();
+        }
     }
 
     public RecipeResponse mapRecipeDataToRecipeResponse(RecipeData recipeData) {
